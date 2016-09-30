@@ -16,8 +16,9 @@ Kookaburra Incorporated
 ##Description
 Carpooling Connections:
 
-A website that provides a database of users looking to either carpool people in their car or provides a list of people who are looking to carpool. Users that are looking to provide a carpooling service, select where they are going, how many people they can drive, and how much they are charging. After the Driver posts they get a list of matches that helps them select users interested in the route faster. Users that are looking to hitch a ride select where they would like to go, and they are provided a list of options.
-People searching for a ride will be able to filter by beginning, end and time.
+A website that makes it easier for users wishing to car pool, whether they are offering a ride using their own car or looking for a ride from someone else. Users that are looking to provide a carpooling service, select where they are going, what time they plan to leave, the name of the event they are traveling to, how many extra seats are in their car, and the price they'll charge per passenger. After the driver posts, they'll be shown a list of potential passengers who may be good candidates to carpool with (e.g. same event, willing to pay similar amount of money). Additionally, users who are looking for a ride, can search for one by selecting what event/destination they are trying to get to, what their price range is, how many seats they are looking for (e.g. bringing a friend). 
+
+Posts by people offering a carpooling service will appear if they are similar to the criteria the user searched for. Once an appropriate ride is found, the user can make an inquiry to the person who made the post. Carpooling Connect will operate via a web interface that interacts with a MySQL database. Information associated with posts will be stored in a relational database. When a user searches on the website, a query will be performed and try to return similar keyword results.
 
 ##Vision Statement
 To provide a carpooling service to all people and lead the way towards reducing fuel emissions and fostering collaboration while we broaden community benefit.
