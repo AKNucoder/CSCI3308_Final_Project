@@ -29,15 +29,15 @@ Motivation
 Often when there are big events, there are typically people near that are going to be attending an event that you are going to too, whether that be work or a social activity. Our motivation is to be able to connect people nearby so that they can arrange carpools and ultimately more efficient ways to get more people to the same place. As a result, we will be able to cut down on emissions, reduce traffic congestion to and from events and establish a community of people nearby who have similar interests. 
 
 ##Risks
--Version control getting out of hand and the code base being changed by too many people at once.
--A specific feature takes too long to learn and implement and ends up being only half-finished.
--Uncaught bugs impede the usage of the website.
--Too many dependencies within the code result in breaking the entire website if one part doesn’t work.
+- Version control getting out of hand and the code base being changed by too many people at once.
+- A specific feature takes too long to learn and implement and ends up being only half-finished.
+- Uncaught bugs impede the usage of the website.
+- Too many dependencies within the code result in breaking the entire website if one part doesn’t work.
 
 ##Risk Mitigation Plan
--Ensure that each member is aware of what portion of the code they are responsible for and that they don’t work on code that another user might be working on.
--Have clear rules for branching and merging into the main code base so that broken code doesn’t get into the main files.
--Reduce the amount of dependencies in the code and ensure that steps are taken to try and make the program more modular, that is one area of the code does not depend highly on the other in order to work.
+- Ensure that each member is aware of what portion of the code they are responsible for and that they don’t work on code that another user might be working on.
+- Have clear rules for branching and merging into the main code base so that broken code doesn’t get into the main files.
+- Reduce the amount of dependencies in the code and ensure that steps are taken to try and make the program more modular, that is one area of the code does not depend highly on the other in order to work.
 
 ##Version Control
 We will use GitHub as our version control system. Also, we will create tags when we commit.
