@@ -16,7 +16,7 @@ Kookaburra Incorporated
 ##Description
 Carpooling Connections:
 
-A website that makes it easier for users wishing to car pool, whether they are offering a ride using their own car or looking for a ride from someone else. Users that are looking to provide a carpooling service, select where they are going, what time they plan to leave, the name of the event they are traveling to, how many extra seats are in their car, and the price they'll charge per passenger. After the driver posts, they'll be shown a list of potential passengers who may be good candidates to carpool with (e.g. same event, willing to pay similar amount of money). Additionally, users who are looking for a ride, can search for one by selecting what event/destination they are trying to get to, what their price range is, how many seats they are looking for (e.g. bringing a friend). 
+A website that makes it easier for users wishing to car pool, whether they are offering a ride using their own car or looking for a ride from someone else. Users that are looking to provide a carpooling service, select where they are going, what time they plan to leave, the name of the event they are traveling to, how many extra seats are in their car, and the price they'll charge per passenger. After the driver posts, they'll be shown a list of potential passengers who may be good candidates to carpool with (e.g. same event, willing to pay similar amount of money). Additionally, users who are looking for a ride, can search for one by selecting what event/destination they are trying to get to, what their price range is, and how many seats they are looking for (e.g. bringing a friend). 
 
 Posts by people offering a carpooling service will appear if they are similar to the criteria the user searched for. Once an appropriate ride is found, the user can make an inquiry to the person who made the post. Carpooling Connect will operate via a web interface that interacts with a MySQL database. Information associated with posts will be stored in a relational database. When a user searches on the website, a query will be performed and try to return similar keyword results.
 
@@ -26,7 +26,7 @@ To provide a carpooling service to all people and lead the way towards reducing 
 ##Motivation
 
 Motivation
-Often when there are big events, there are typically people near that are going to be attending an event that you are going to too, whether that be work or a social activity. Our motivation is to be able to connect people nearby so that they can arrange carpools and ultimately more efficient ways to get more people to the same place. As a result we will be able to cut down on emissions, reduce traffic congestion to and from events and establish a community of people nearby who have similar interests. 
+Often when there are big events, there are typically people near that are going to be attending an event that you are going to too, whether that be work or a social activity. Our motivation is to be able to connect people nearby so that they can arrange carpools and ultimately more efficient ways to get more people to the same place. As a result, we will be able to cut down on emissions, reduce traffic congestion to and from events and establish a community of people nearby who have similar interests. 
 
 ##Risks
 -Version control getting out of hand and the code base being changed by too many people at once.
@@ -40,12 +40,12 @@ Often when there are big events, there are typically people near that are going 
 -Reduce the amount of dependencies in the code and ensure that steps are taken to try and make the program more modular, that is one area of the code does not depend highly on the other in order to work.
 
 ##Version Control
-We will use GitHub for Version Control, pushing with tags every time to keep Version Control in check .
+We will use GitHub as our version control system. Also, we will create tags when we commit.
 
 ##Software Development Methodology
 Agile
 
-We will have people working on different aspects of the project but always collaborating with each other to make sure the progress is going in the right direction. 
+We will have people working on different aspects of the project but always collaborating with each other to make sure progress is going in the right direction. Clear weekly communication is essential, as to try and ensure that we are all envisioning the same phase/product.
 
 ##Collaboration Tool
-We are using Slack as a collaboration tool
+We are using Slack as a collaboration tool.
