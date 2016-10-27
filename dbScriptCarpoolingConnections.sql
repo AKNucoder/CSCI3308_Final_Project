@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `user_contact` (
 	FOREIGN KEY (`userId`) REFERENCES user_profile(`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-#Details about the user's car, if the user is a driver. 
+#Details about the users car, if the user is a driver. 
 CREATE TABLE IF NOT EXISTS `user_vehicle` ( 
 	`carId`			mediumint(10) 	unsigned	NOT NULL auto_increment,
 	`userId` 		mediumint(10) 	unsigned 	NOT NULL,
