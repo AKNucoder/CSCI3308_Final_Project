@@ -1,7 +1,7 @@
 # This is the script to create the tables inside the database
 # https://www.ups.com/worldshiphelp/WS14/ENU/AppHelp/CONNECT/Address_Data_Field_Descriptions.htm - Example Lengths for field sizes for many of the attributes here
 # http://php.net/manual/en/function.password-hash.php - Some PHP commands on hashing (and size of hash)
-# InnoDB engine used due to better performance vs myISAM which is usually only better if there is little writing, howeever in this case, reading and writing is used frequently.
+# InnoDB engine used due to better performance vs myISAM which is usually only better if there is little writing, however in this case, reading and writing is used frequently.
 
 # User`s profile information
 CREATE TABLE IF NOT EXISTS `user_profile` ( 
