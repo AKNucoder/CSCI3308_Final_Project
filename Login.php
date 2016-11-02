@@ -31,11 +31,8 @@
 	define('DB_PASSWORD', 'default');
 	define('DB_HOST', 'localhost');
 	
-	$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
-	
-	if(!$link){
-		die('Could not connect: ' . mysql_error());
-	}
+	$db = new PDO('mysql:host=localhost;dbname=Carpool;charset=utf8mb4', 'root', 'default', array(PDO::ATTR_EMULATE_PREPARES => false, 
+	 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 	
 	$db_selected = mysql_select_db(DB_NAME, $link);
 	
@@ -125,15 +122,15 @@
 
 	//works -- checks if password and confirmpassword are the same
 	function checkPasswordEquality($password,$confirm_password){
-		$query4 = mysql_query("SELECT Password FROM Users WHERE Password ='".$password."'");
-		$query5 = mysql_query("SELECT Confirmpassword FROM Users WHERE Confirmpassword ='".$confirm_password."'");
-		if($query4 == $query5){
-			echo "Passwords do not match. Please check your passwords.";
-			break;
+		if($password != $confim_password){
+			echo "Passwords do not match.";
+			return false;
 		}
-		else{
-			//echo "passwords match";
+		$password_query = mysql_query("SELECT Password FROM Users WHERE Password ='".$password."'");
+		if(mysql_num_rows($password_query) != 0){
+
 		}
+		
 	}
 		
 	//works --- checks to make sure the email address entered is not taken
@@ -141,8 +138,9 @@
 		$query3 = mysql_query("SELECT Email FROM Users WHERE Email ='".$email."'");
 		if (mysql_num_rows($query3) !=0){
 			echo "This email is already in use. Please enter a new email or login.";
-			break;
+			return false;
 		}
+		return true;
 	}
 ?>
 </html>
