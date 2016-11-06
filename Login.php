@@ -33,6 +33,7 @@
 	
 	$db = new PDO('mysql:host=localhost;dbname=Carpool;charset=utf8mb4', 'root', 'default', array(PDO::ATTR_EMULATE_PREPARES => false, 
 	 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
 	
 	$db_selected = mysql_select_db(DB_NAME, $link);
 	
@@ -71,8 +72,8 @@
 		validateEmail($email);
 		*/
 	
-		checkEmailAvail($email);
-		checkPasswordEquality($password,$confirm_password);
+		//checkEmailAvail($email);
+		//checkPasswordEquality($password,$confirm_password);
 		/*
 		function checkPhoneNo($phone){
 			$numbersOnly = ereg_replace("[^0-9]","",$phone);
@@ -98,30 +99,28 @@
 		}
 		checkPhoneNoAvail($phone);
 		*/
-		$passwordmd5 = md5($password);
-		$confirmmd5 = md5($confirm_password);
+		//$passwordmd5 = md5($password);
+		//$confirmmd5 = md5($confirm_password);
 		
-		$sql = "INSERT INTO Users (Username, Password, Confirmpassword, First_name, Last_name, Email, Phoneno, Major) usernameS ('$username', '$passwordmd5', '$confirmmd5', '$first_name', '$last_name', '$email', '$phone', '$username7')";
-		echo "Account created";
+		//$sql = "INSERT INTO Users (Username, Password, Confirmpassword, First_name, Last_name, Email, Phoneno, Major) usernameS ('$username', '$passwordmd5', '$confirmmd5', '$first_name', '$last_name', '$email', '$phone', '$username7')";
+		//echo "Account created";
 	}
-	if (!mysql_query($sql)) {
+	/*if (!mysql_query($sql)) {
 		die('Error: ' . mysql_error());
 		}
 	
 	
-	mysql_close();
+	mysql_close();*/
 	
 	//works --- checks to make sure the username entered is not taken
 	function checkUsernameAvail($username){
-		$query = mysql_query("SELECT Username FROM Users WHERE Username ='".$username."'");
-		if (mysql_num_rows($query) !=0){
-			echo( "Username already exists. Please enter a new username.");
-			break;
+		foreach($db->query('SELECT Username FROM Users') as $stored_username){
+			echo $stored_username
 		}
 	}
 
 	//works -- checks if password and confirmpassword are the same
-	function checkPasswordEquality($password,$confirm_password){
+	/*function checkPasswordEquality($password,$confirm_password){
 		if($password != $confim_password){
 			echo "Passwords do not match.";
 			return false;
@@ -141,6 +140,6 @@
 			return false;
 		}
 		return true;
-	}
+	}*/
 ?>
 </html>
