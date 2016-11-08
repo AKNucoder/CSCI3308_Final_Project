@@ -51,6 +51,9 @@
 	}
 	function validate_phone_number($phone_num1, $phone_num2, $phone_num3){
 		// check to see that it's entirely numbers, strip out to a standard format
+		if(strlen($phone_num1) != 3 or strlen($phone_num2) != 3 or strlen($phone_num3) != 4){
+			echo "Error: Invalid phone number.<br>";
+		}
 	}
 	?>
 	<button onclick="history.go(-1);">Back </button>
