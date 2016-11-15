@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<?PHP
-	//Initaial Database connection setup and message to notify developer.
-	include 'configdb.php';
-	include 'opendb.php';
-	$message = 'This worked!!!';
 
-	echo '<script type="text/javascript">alert("'.$message.'");</script>';
-
-	include 'closedb.php';
-?>
 </head>
 
 <body>
 
-<form action="Login2.php" method="post">
+<form action="login2.php" method="post">
 	Username: <input type="text" name="username"> <br>
 	First Name: <input type="text" name="first_name"><br>
 	Last Name: <input type="text" name="last_name"><br>
