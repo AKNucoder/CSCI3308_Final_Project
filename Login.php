@@ -31,15 +31,15 @@
 	define('DB_PASSWORD', 'default');
 	define('DB_HOST', 'localhost');
 	
-	//$db = new PDO('mysql:host=localhost;dbname=Carpool;charset=utf8mb4', 'root', 'password', array(PDO::ATTR_EMULATE_PREPARES => false, 
-	// PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	$db = new PDO('mysql:host=localhost;dbname=Carpool;charset=utf8mb4', 'root', 'default', array(PDO::ATTR_EMULATE_PREPARES => false, 
+	 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
 	
-	//$db_selected = mysql_select_db(DB_NAME, $link);
+	$db_selected = mysql_select_db(DB_NAME, $link);
 	
-	//if(!$db_selected) {
-	//	die('Cant use ' . DB_NAME . ': ' . mysql_error());
-	//}
+	if(!$db_selected) {
+		die('Cant use ' . DB_NAME . ': ' . mysql_error());
+	}
 	
 	$username = $_POST['Username'];
 	$password = $_POST['Password'];
@@ -51,7 +51,7 @@
 	//$username7 = $_POST['Major'];
 	if (!empty($username) and !empty($password) and !empty($confirm_password) and !empty($first_name) and !empty($last_name) and !empty($email) and !empty($phone) and !empty($username7)){
 		
-		//checkUsernameAvail($username);
+		checkUsernameAvail($username);
 		/*
 		// --- checks to make sure the email address entered is a valid email address
 		function validateEmail($email){
@@ -113,11 +113,11 @@
 	mysql_close();*/
 	
 	//works --- checks to make sure the username entered is not taken
-	/*function checkUsernameAvail($username){
+	function checkUsernameAvail($username){
 		foreach($db->query('SELECT Username FROM Users') as $stored_username){
-			echo $stored_username;
+			echo $stored_username
 		}
-	}*/
+	}
 
 	//works -- checks if password and confirmpassword are the same
 	/*function checkPasswordEquality($password,$confirm_password){
