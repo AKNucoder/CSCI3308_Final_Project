@@ -31,17 +31,15 @@
 	define('DB_PASSWORD', 'default');
 	define('DB_HOST', 'localhost');
 	
-	$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+	//$db = new PDO('mysql:host=localhost;dbname=Carpool;charset=utf8mb4', 'root', 'password', array(PDO::ATTR_EMULATE_PREPARES => false, 
+	// PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
 	
-	if(!$link){
-		die('Could not connect: ' . mysql_error());
-	}
+	//$db_selected = mysql_select_db(DB_NAME, $link);
 	
-	$db_selected = mysql_select_db(DB_NAME, $link);
-	
-	if(!$db_selected) {
-		die('Cant use ' . DB_NAME . ': ' . mysql_error());
-	}
+	//if(!$db_selected) {
+	//	die('Cant use ' . DB_NAME . ': ' . mysql_error());
+	//}
 	
 	$username = $_POST['Username'];
 	$password = $_POST['Password'];
@@ -53,7 +51,7 @@
 	//$username7 = $_POST['Major'];
 	if (!empty($username) and !empty($password) and !empty($confirm_password) and !empty($first_name) and !empty($last_name) and !empty($email) and !empty($phone) and !empty($username7)){
 		
-		checkUsernameAvail($username);
+		//checkUsernameAvail($username);
 		/*
 		// --- checks to make sure the email address entered is a valid email address
 		function validateEmail($email){
@@ -74,8 +72,8 @@
 		validateEmail($email);
 		*/
 	
-		checkEmailAvail($email);
-		checkPasswordEquality($password,$confirm_password);
+		//checkEmailAvail($email);
+		//checkPasswordEquality($password,$confirm_password);
 		/*
 		function checkPhoneNo($phone){
 			$numbersOnly = ereg_replace("[^0-9]","",$phone);
@@ -101,39 +99,37 @@
 		}
 		checkPhoneNoAvail($phone);
 		*/
-		$passwordmd5 = md5($password);
-		$confirmmd5 = md5($confirm_password);
+		//$passwordmd5 = md5($password);
+		//$confirmmd5 = md5($confirm_password);
 		
-		$sql = "INSERT INTO Users (Username, Password, Confirmpassword, First_name, Last_name, Email, Phoneno, Major) usernameS ('$username', '$passwordmd5', '$confirmmd5', '$first_name', '$last_name', '$email', '$phone', '$username7')";
-		echo "Account created";
+		//$sql = "INSERT INTO Users (Username, Password, Confirmpassword, First_name, Last_name, Email, Phoneno, Major) usernameS ('$username', '$passwordmd5', '$confirmmd5', '$first_name', '$last_name', '$email', '$phone', '$username7')";
+		//echo "Account created";
 	}
-	if (!mysql_query($sql)) {
+	/*if (!mysql_query($sql)) {
 		die('Error: ' . mysql_error());
 		}
 	
 	
-	mysql_close();
+	mysql_close();*/
 	
 	//works --- checks to make sure the username entered is not taken
-	function checkUsernameAvail($username){
-		$query = mysql_query("SELECT Username FROM Users WHERE Username ='".$username."'");
-		if (mysql_num_rows($query) !=0){
-			echo( "Username already exists. Please enter a new username.");
-			break;
+	/*function checkUsernameAvail($username){
+		foreach($db->query('SELECT Username FROM Users') as $stored_username){
+			echo $stored_username;
 		}
-	}
+	}*/
 
 	//works -- checks if password and confirmpassword are the same
-	function checkPasswordEquality($password,$confirm_password){
-		$query4 = mysql_query("SELECT Password FROM Users WHERE Password ='".$password."'");
-		$query5 = mysql_query("SELECT Confirmpassword FROM Users WHERE Confirmpassword ='".$confirm_password."'");
-		if($query4 == $query5){
-			echo "Passwords do not match. Please check your passwords.";
-			break;
+	/*function checkPasswordEquality($password,$confirm_password){
+		if($password != $confim_password){
+			echo "Passwords do not match.";
+			return false;
 		}
-		else{
-			//echo "passwords match";
+		$password_query = mysql_query("SELECT Password FROM Users WHERE Password ='".$password."'");
+		if(mysql_num_rows($password_query) != 0){
+
 		}
+		
 	}
 		
 	//works --- checks to make sure the email address entered is not taken
@@ -141,8 +137,9 @@
 		$query3 = mysql_query("SELECT Email FROM Users WHERE Email ='".$email."'");
 		if (mysql_num_rows($query3) !=0){
 			echo "This email is already in use. Please enter a new email or login.";
-			break;
+			return false;
 		}
-	}
+		return true;
+	}*/
 ?>
 </html>
