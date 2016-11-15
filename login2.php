@@ -3,6 +3,7 @@
 <?PHP
 	//This script was created by Maxine Harnett, Kushal Joshi and Johnathan Kruse
 	//This script is simply to test the user ability to log in to an existing account and display the user's info.
+	//A separate script will be used for new users, which is create_account.php
 
 	//Initaial Database connection setup and message to notify developer.
 	include 'configdb.php';
@@ -29,7 +30,7 @@
 	$password = $_POST["password"];
 	$confirm_password = $_POST["confirm_password"];
 
-	// Check to see if the inputs are valid and add them to the database or throw an error.
+	// Check inputs to log in the existing user.
 	if (!empty($username) and !empty($password) and !empty($confirm_password)){
 		echo "Validating... <br>";
 		$user_record = validate_username($username);
