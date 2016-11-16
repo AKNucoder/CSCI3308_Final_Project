@@ -7,7 +7,7 @@
 CREATE TABLE IF NOT EXISTS `user_profile` ( 
 	`userId`		mediumint(10) unsigned	NOT NULL auto_increment, 
 	`fullName`		varchar(35)				NOT NULL,
-	`email`			varchar(50)				NOT NULL,
+	`email`			varchar(50)				NOT NULL UNIQUE,
 	`ps`			varchar(60)				NOT NULL,
 	`userName`		varchar(25)				NOT NULL UNIQUE,
 	`isDriver`		boolean					NOT NULL,
