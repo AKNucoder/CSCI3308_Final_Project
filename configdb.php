@@ -4,6 +4,6 @@
 //Note: 127.0.0.1 is usually localhost
  $db_host = '127.0.0.1';
  $db_user = 'root';
- $db_pass = 'password';
+ $db_pass = '1a9f0EBp3692klMPVc';
  $db_name = 'carpooling_connections';
 ?>
