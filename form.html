@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
+<head>
+</head>
+
 <body>
+<?PHP
+	include 'config.php';
+	include 'opendb.php';
+	//$message = 'This worked!!!';
+
+	echo '<script type="text/javascript">alert("hello!");</script>';
+
+	include 'closedb.php';
+?>
 <form action="Login2.php" method="post">
 	Username: <input type="text" name="username"> <br>
 	First Name: <input type="text" name="first_name"><br>
