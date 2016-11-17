@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<script src="http://code.jquery.com/jquery-2.2.0.js"></script>
 <title>Kookaburra Incorporated's Carpool Connections</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
@@ -11,6 +12,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-navbar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
+<?PHP
+	//File names
+	include 'scripts/file_names.php'
+?>
 <body>
 
 <!-- Navbar -->
@@ -19,15 +24,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
       <a class="w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     </li>
-    <li><a href="#" class="w3-padding-large w3-white">About Us</a></li>
-    <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white"<a href="HomePage.html">Home</a></li>
-    
+    <?php
+    	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.HOME_PAGE.'\'">Home</a></li>';
+    	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.GET_STARTED.'\'">Get Started</a></li>';
+    	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.ABOUT_US.'\'">About Us</a></li>';
+    	echo '<li><a href="#" class="w3-padding-large w3-white" onclick="location.href=\''.LOG_IN.'\'">Sign In</a></li>';
+    ?>
   </ul>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium">
     <ul class="w3-navbar w3-left-align w3-large w3-black">
-      <li><a href="AboutUs.html"><a class="w3-padding-large" href="#">About Us</a></li>
+      <li><a class="w3-padding-large" onclick="location.href='AboutUs.html'">About Us</a></li>
     </ul>
   </div>
 </div>
@@ -35,77 +43,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <!-- Header -->
 <header class="w3-container w3-red w3-center w3-padding-128">
   <div align="center">
-	<form action="demotutors.php" method="post"/>
-	<h2> Sign Up For an Account </h2>
-			<table width="450px">
-				<tr>
-					<td>
-						<label for="Username">Username</label>
-					</td>
-					<td>
-						<input type="text" name="Username" maxlength="50" size="20">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="Password">Password</label>
-					</td>
-					<td>
-						<input type="text" name="Password" maxlength="50" size="20">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="Confirmpassword">Confirm Password</label>
-					</td>
-					<td>
-						<input type="text" name="Confirmpassword" maxlength="50" size="20">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="First_name">First Name</label>
-					</td>
-					<td>
-						<input type="text" name="First_name" maxlength="50" size="20">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="Last_name">Last Name</label>
-					</td>
-					<td>
-						<input type="text" name="Last_name" maxlength="50" size="20">
-					</td>
-				</tr>
-				
-				<tr>
-					<td>
-						<label for="Your_Location">Your Location</label>
-					</td>
-					<td>
-						<input type="text" name="Your_Location" maxlength="50" size="20">
-					</td>
-				</tr>
-				
-				<tr>
-					<td>
-						<label for="Email">Email</label>
-					</td>
-					<td>
-						<input type="text" name="Email" maxlength="80" size="20">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="Phoneno">Cell</label>
-					</td>
-					<td>
-						<input type="text" name="Phoneno" maxlength="30" size="20">
-					</td>
-				</tr>
-			</table>		
-			<input type="submit"><a href="LoggedIn.html"></a>
+	<!-- <form action="scripts/create_account_script.php" method="post"> -->
+	<form id="form_sign_in" name="form_create_account" method="post" action="">
+	<h2> Success! You are now signed in as: </h2>
 		</form>
 		</div>
 

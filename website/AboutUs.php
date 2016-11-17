@@ -11,6 +11,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-navbar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
+<?PHP
+  //File names
+  include 'scripts/file_names.php'
+?>
 <body>
 
 <!-- Navbar -->
@@ -19,15 +23,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
       <a class="w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     </li>
-    <li><a href="#" class="w3-padding-large w3-white">About Us</a></li>
-    <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white"<a href="HomePage.html">Home</a></li>
-    
+    <?php
+      echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.HOME_PAGE.'\'">Home</a></li>';
+      echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.GET_STARTED.'\'">Get Started</a></li>';
+      echo '<li><a href="#" class="w3-padding-large w3-white" onclick="location.href=\''.ABOUT_US.'\'">About Us</a></li>';
+      echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.LOG_IN.'\'">Sign In</a></li>';
+    ?>
   </ul>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium">
     <ul class="w3-navbar w3-left-align w3-large w3-black">
-      <li><a href="AboutUs.html"><a class="w3-padding-large" href="#">About Us</a></li>
+      <li><a class="w3-padding-large" onclick="location.href='AboutUs.html'">About Us</a></li>
     </ul>
   </div>
 </div>

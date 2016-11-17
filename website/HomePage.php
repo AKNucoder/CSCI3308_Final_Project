@@ -11,6 +11,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-navbar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
+<?PHP
+  //File names
+  include 'scripts/file_names.php'
+?>
 <body>
 
 <!-- Navbar -->
@@ -19,9 +23,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
       <a class="w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     </li>
-    <li><a href="#" class="w3-padding-large w3-white">Home</a></li>
-    <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white"<a href="AboutUs.html">About Us</a></li>
-    
+    <?php
+      echo '<li><a href="#" class="w3-padding-large w3-white" onclick="location.href=\''.HOME_PAGE.'\'">Home</a></li>';
+      echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.GET_STARTED.'\'">Get Started</a></li>';
+      echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.ABOUT_US.'\'">About Us</a></li>';
+      echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.LOG_IN.'\'">Sign In</a></li>';
+    ?>
   </ul>
 
   <!-- Navbar on small screens -->
@@ -36,17 +43,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <header class="w3-container w3-red w3-center w3-padding-128">
   <h1 class="w3-margin w3-jumbo">Carpooling Connections</h1>
   <p class="w3-xlarge">Connecting One, Connecting All</p>
-  <button class="w3-btn w3-padding-16 w3-large w3-margin-top"><a class="active" href="GetStarted.html">Get Started</a></button>
+  <?php
+    echo '<button class="w3-btn w3-padding-16 w3-large w3-margin-top" onclick="location.href=\''.GET_STARTED.'\'">Get Started</button>';
+  ?>
 </header>
 
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+  <!--
   <div class="w3-xlarge w3-padding-32">
    <a href="#" class="w3-hover-text-indigo"><i class="fa fa-facebook-official"></i></a>
    <a href="#" class="w3-hover-text-light-blue"><i class="fa fa-twitter"></i></a>
    <a href="#" class="w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a>
  </div>
+  -->
 </footer>
 
 <script>
