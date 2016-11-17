@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<title>Kookaburra Incorporated's Carpool Connections</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-navbar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <ul class="w3-navbar w3-red w3-card-2 w3-left-align w3-large">
+    <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
+      <a class="w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    </li>
+    <li><a href="#" class="w3-padding-large w3-white">About Us</a></li>
+    <li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white"<a href="HomePage.html">Home</a></li>
+    
+  </ul>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium">
+    <ul class="w3-navbar w3-left-align w3-large w3-black">
+      <li><a href="AboutUs.html"><a class="w3-padding-large" href="#">About Us</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center w3-padding-128">
+  <div align="center">
+	<form action="demotutors.php" method="post"/>
+	<h2> Sign Up For an Account </h2>
+			<table width="450px">
+				<tr>
+					<td>
+						<label for="Username">Username</label>
+					</td>
+					<td>
+						<input type="text" name="Username" maxlength="50" size="20">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="Password">Password</label>
+					</td>
+					<td>
+						<input type="text" name="Password" maxlength="50" size="20">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="Confirmpassword">Confirm Password</label>
+					</td>
+					<td>
+						<input type="text" name="Confirmpassword" maxlength="50" size="20">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="First_name">First Name</label>
+					</td>
+					<td>
+						<input type="text" name="First_name" maxlength="50" size="20">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="Last_name">Last Name</label>
+					</td>
+					<td>
+						<input type="text" name="Last_name" maxlength="50" size="20">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label for="Your_Location">Your Location</label>
+					</td>
+					<td>
+						<input type="text" name="Your_Location" maxlength="50" size="20">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label for="Email">Email</label>
+					</td>
+					<td>
+						<input type="text" name="Email" maxlength="80" size="20">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="Phoneno">Cell</label>
+					</td>
+					<td>
+						<input type="text" name="Phoneno" maxlength="30" size="20">
+					</td>
+				</tr>
+			</table>		
+			<input type="submit"><a href="LoggedIn.html"></a>
+		</form>
+		</div>
+
+</header>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">
+  <div class="w3-xlarge w3-padding-32">
+   <a href="#" class="w3-hover-text-indigo"><i class="fa fa-facebook-official"></i></a>
+   <a href="#" class="w3-hover-text-light-blue"><i class="fa fa-twitter"></i></a>
+   <a href="#" class="w3-hover-text-indigo"><i class="fa fa-linkedin"></i></a>
+ </div>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html>
+
