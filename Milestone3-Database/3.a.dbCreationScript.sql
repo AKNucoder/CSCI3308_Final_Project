@@ -1,13 +1,13 @@
 # This is the script to create the tables inside the database
 # https://www.ups.com/worldshiphelp/WS14/ENU/AppHelp/CONNECT/Address_Data_Field_Descriptions.htm - Example Lengths for field sizes for many of the attributes here
 # http://php.net/manual/en/function.password-hash.php - Some PHP commands on hashing (and size of hash)
-# InnoDB engine used due to better performance vs myISAM which is usually only better if there is little writing, howeever in this case, reading and writing is used frequently.
+# InnoDB engine used due to better performance vs myISAM which is usually only better if there is little writing, however in this case, reading and writing is used frequently.
 
 # User`s profile information
 CREATE TABLE IF NOT EXISTS `user_profile` ( 
 	`userId`		mediumint(10) unsigned	NOT NULL auto_increment, 
 	`fullName`		varchar(35)				NOT NULL,
-	`email`			varchar(50)				NOT NULL UNIQUE,
+	`email`			varchar(50)				NOT NULL,
 	`ps`			varchar(60)				NOT NULL,
 	`userName`		varchar(25)				NOT NULL UNIQUE,
 	`isDriver`		boolean					NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `user_contact` (
 	FOREIGN KEY (`userId`) REFERENCES user_profile(`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-#Details about the user's car, if the user is a driver. 
+#Details about the users car, if the user is a driver. 
 CREATE TABLE IF NOT EXISTS `user_vehicle` ( 
 	`carId`			mediumint(10) 	unsigned	NOT NULL auto_increment,
 	`userId` 		mediumint(10) 	unsigned 	NOT NULL,
