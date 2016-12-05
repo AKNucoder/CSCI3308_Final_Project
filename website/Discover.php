@@ -1,5 +1,5 @@
 <?php
-// Start the session - http://www.w3schools.com/php/php_sessions.asp
+// Start the session - http://www.w3schools.com/php/php_sessions.asp 
 session_start();
 ?>
 <!DOCTYPE html>
