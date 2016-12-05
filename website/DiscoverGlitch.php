@@ -1,7 +1,3 @@
-<?php
-// Start the session - http://www.w3schools.com/php/php_sessions.asp
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <script src="http://code.jquery.com/jquery-2.2.0.js"></script>
@@ -45,7 +41,6 @@ td{
     	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.LOG_IN.'\'">Sign In</a></li>';
     	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.MAKE_A_POST.'\'">Create a Post</a></li>';
     	echo '<li><a href="#" class="w3-padding-large w3-white" onclick="location.href=\''.FIND_A_RIDE.'\'">Find a Ride</a></li>';
-    	echo $_SESSION["user_name"];
     ?>	
   </ul>
 
@@ -59,22 +54,6 @@ td{
 
 <!-- Header -->
 <header class="w3-container w3-red w3-center w3-padding-128">
-<?PHP
-	//echo $_SESSION["user_id"];
-
-	//If logged in, let the user view the page, else do not let them
-	if (isset($_SESSION["user_id"]) && intval($_SESSION["user_id"]) > 0){
-		
-	}
-	else{
-		?>
-		<script type="text/javascript"> 
-			alert("Please Sign-In or Create an Account!");
-			window.location.assign("GetStarted.php");
-	    </script>;  
-	    <?PHP
-	}
-?>
   <div align="center">
 	<!-- <form action="scripts/create_account_script.php" method="post"> -->
 	<form id="form_create_account" name="form_create_account" method="post" action="">
@@ -88,11 +67,11 @@ td{
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
       <!--<label for="password">Search:</label>-->
-      <input type="text" name="search" maxlength="50" size="20">
-      <input type="submit" value = "Search" id = "btn_search" name = "btn_search">
+      <input type="password" name="password" maxlength="50" size="20">
+      <input type="submit" value = "Search" id = "btn_submit" name = "btn_submit">
 
       <!-- <form action="scripts/create_account_script.php" method="post"> -->
-		<table id="main_table" width="600px" border ="2">
+			<table width="600px" border ="2">
 				<br>
 				<tr>
           <td>
@@ -115,20 +94,10 @@ td{
           //Search for all rides and keep printing all the results as rows in the table
           //http://php.net/manual/en/function.mysql-fetch-array.php
           
-          //$search_query_all_rides="SELECT *
-                       // FROM ". TABLE_USER_ENTRY . ";";
-          //$result = mysql_query($search_query_all_rides);
-          ?>
-
-
-          <div class="rides_list">
-          <?php
-          include 'scripts/retrieve_rides_list.php';
-          ?>
-          </div>
-
-
-          <?PHP
+          $search_query_all_rides="SELECT *
+                        FROM ". TABLE_USER_ENTRY . ";";
+          $result = mysql_query($search_query_all_rides);
+          echo "Here";
           /*
           while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
                 printf("ID: %s  Name: %s", $row[0], $row[1]); 
@@ -151,8 +120,9 @@ td{
                   </tr>
                   ';
           }
-          */
-          //mysql_free_result($result);
+          
+          mysql_free_result($result);
+        */
         ?>
         
 

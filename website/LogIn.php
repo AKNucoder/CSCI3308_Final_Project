@@ -1,3 +1,7 @@
+<?php
+// Start the session - http://www.w3schools.com/php/php_sessions.asp
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <script src="http://code.jquery.com/jquery-2.2.0.js"></script>
@@ -31,7 +35,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     	echo '<li><a href="#" class="w3-padding-large w3-white" onclick="location.href=\''.LOG_IN.'\'">Sign In</a></li>';
     	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.MAKE_A_POST.'\'">Create a Post</a></li>';
     	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.FIND_A_RIDE.'\'">Find a Ride</a></li>';
-
+    	echo $_SESSION["user_name"];
     ?>
   </ul>
 

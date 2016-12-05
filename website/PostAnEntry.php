@@ -1,3 +1,7 @@
+<?php
+// Start the session - http://www.w3schools.com/php/php_sessions.asp
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <script src="http://code.jquery.com/jquery-2.2.0.js"></script>
@@ -17,7 +21,22 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 	include 'scripts/file_names.php'
 ?>
 <body>
+<?PHP
+	//echo $_SESSION["user_id"];
 
+	//If logged in, let the user view the page, else do not let them
+	if (isset($_SESSION["user_id"]) && intval($_SESSION["user_id"]) > 0){
+		
+	}
+	else{
+		?>
+		<script type="text/javascript"> 
+			alert("Please Sign-In or Create an Account!");
+			window.location.assign("GetStarted.php");
+	    </script>;  
+	    <?PHP
+	}
+?>
 <!-- Navbar -->
 <div class="w3-top">
   <ul class="w3-navbar w3-red w3-card-2 w3-left-align w3-large">
@@ -31,6 +50,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.LOG_IN.'\'">Sign In</a></li>';
     	echo '<li><a href="#" class="w3-padding-large w3-white" onclick="location.href=\''.MAKE_A_POST.'\'">Create a Post</a></li>';
         echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.FIND_A_RIDE.'\'">Find a Ride</a></li>';
+        echo $_SESSION["user_name"];
 
     ?>
   </ul>
@@ -76,7 +96,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     					<select name="month_of_event" id="month_of_event"> 
     						<?php
     						for ($month=1; $month<=12;$month++){
-								 echo '<option value="'.$month.'">'.$month.'</option>';
+    							$month_string = $month;
+								 if ($month<10){
+								 	$month_string = "0".$month;
+								 }
+								 echo '<option value="'.$month_string.'">'.$month_string.'</option>';
 							}
 							?>  
     					</select>
@@ -84,12 +108,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     					<select name="day_of_event" id="day_of_event"> 
     						<?php
     						for ($day=1; $day<=31;$day++){
-								 echo '<option value="'.$day.'">'.$day.'</option>';
+								 $day_string = $day;
+								 if ($day<10){
+								 	$day_string = "0".$day;
+								 }
+								 echo '<option value="'.$day_string.'">'.$day_string.'</option>';
 							}
 							?>  
     					</select>
     					/
-    					<select name="day_of_year" id="day_of_year"> 
+    					<select name="year_of_event" id="year_of_event"> 
 							<?php
 							$current_year = date('Y');
     						for ($year=$current_year; $year<=($current_year+1);$year++){
@@ -107,7 +135,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     					<select name="hour_of_event" id="hour_of_event"> 
     						<?php
     						for ($hour=0; $hour<=24;$hour++){
-								 echo '<option value="'.$hour.'">'.$hour.'</option>';
+								 $hour_string = $hour;
+								 if ($hour<10){
+								 	$hour_string = "0".$hour;
+								 }
+								 echo '<option value="'.$hour_string.'">'.$hour_string.'</option>';
 							}
 							?>  
     					</select>
@@ -115,7 +147,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     					<select name="minute_of_event" id="minute_of_event"> 
     						<?php
     						for ($minute=0; $minute<=5;$minute++){
-								 echo '<option value="'.$minute.'">'.$minute.'0</option>';
+								 echo '<option value="'.$minute.'0">'.$minute.'0</option>';
 							}
 							?>  
     					</select>
@@ -123,10 +155,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 				</tr>
 				<tr>
 					<td>
+						<label for="fare_decimal">Fare:</label>
+					</td>
+					<td>
+						$<input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"name="fare_not_decimal" maxlength="2" size="2">.
+						 <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"name="fare_decimal" maxlength="2" size="2">
+					</td>
+				</tr>
+				<tr>
+					<td>
 						<label for="tags">Tags</label>
 					</td>
 					<td>
-						<input type="text" name="last_name" maxlength="50" size="20">
+						<input type="text" name="tags" maxlength="50" size="20">
 					</td>
 				</tr>
 			</table>	

@@ -1,7 +1,3 @@
-<?php
-// Start the session - http://www.w3schools.com/php/php_sessions.asp
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <script src="http://code.jquery.com/jquery-2.2.0.js"></script>
@@ -15,6 +11,15 @@ session_start();
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-navbar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
+table, th, td {
+    border: 0px solid white;
+    border-bottom: 1px solid white;
+    border-collapse: collapse;
+}
+
+td{
+	height: 75px;
+}
 </style>
 <?PHP
 	//File names
@@ -30,14 +35,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     </li>
     <?php
     	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.HOME_PAGE.'\'">Home</a></li>';
-    	echo '<li><a href="#" class="w3-padding-large w3-white" onclick="location.href=\''.GET_STARTED.'\'">Get Started</a></li>';
+    	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.GET_STARTED.'\'">Get Started</a></li>';
     	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.ABOUT_US.'\'">About Us</a></li>';
     	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.LOG_IN.'\'">Sign In</a></li>';
     	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.MAKE_A_POST.'\'">Create a Post</a></li>';
-    	echo '<li class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white" onclick="location.href=\''.FIND_A_RIDE.'\'">Find a Ride</a></li>';
-
-    	echo $_SESSION["user_name"];
-  	?>
+    	echo '<li><a href="#" class="w3-padding-large w3-white" onclick="location.href=\''.FIND_A_RIDE.'\'">Find a Ride</a></li>';
+    ?>	
   </ul>
 
   <!-- Navbar on small screens -->
@@ -53,100 +56,151 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div align="center">
 	<!-- <form action="scripts/create_account_script.php" method="post"> -->
 	<form id="form_create_account" name="form_create_account" method="post" action="">
-	<h2> Sign Up For an Account </h2>
+	<h2> Find a Ride</h2>
 			<!-- <form action="scripts/create_account_script.php" method="post"> -->
-			<table width="450px">
+			Sort By: <select name="sort" id="sort"> 
+    			<option value="Date">Date</option>;
+    			<option value="Title">Title</option>;
+    			<option value="Zip">Zip</option>;
+    		</select>
+    		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<!--<label for="password">Search:</label>-->
+			<input type="password" name="password" maxlength="50" size="20">
+			<input type="submit" value = "Search" id = "btn_submit" name = "btn_submit">
+				<table width="600px" border="2">
+				<br>
 				<tr>
 					<td>
-						<label for="username">Username</label>
+						Event
 					</td>
 					<td>
-						<input type="text" name="username" maxlength="50" size="20">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="password">Password</label>
+						Description
 					</td>
 					<td>
-						<input type="password" name="password" maxlength="50" size="20">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="confirm_password">Confirm Password</label>
+						Date: 
 					</td>
 					<td>
-						<input type="password" name="confirm_password" maxlength="50" size="20">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="first_name">First Name</label>
-					</td>
-					<td>
-						<input type="text" name="first_name" maxlength="50" size="20">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="last_name">Last Name</label>
-					</td>
-					<td>
-						<input type="text" name="last_name" maxlength="50" size="20">
-					</td>
-				</tr>
-
-				<tr>
-					<td>
-						<label for="email">Email</label>
-					</td>
-					<td>
-						<input type="text" name="email" maxlength="80" size="20">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="phone_no">Cell</label>
-					</td>
-					<td>
-						<input type="text" name="phone_no" maxlength="10" size="20">
-					</td>
-				</tr>
-
-				<tr>
-					<td>
-						<label for="city">City</label>
-					</td>
-					<td>
-						<input type="text" name="city" maxlength="50" size="20">
 					</td>
 				</tr>
 				
-				<tr>
+				<tr height:"200">
 					<td>
-						<label for="state">State</label>
+						Houston Rockets vs Denver Nuggets, CO 
 					</td>
 					<td>
-						<input type="text" name="state" value="CO" readonly maxlength="2" size="20">
+						<a href="url" color="blue">Planning on leaving 2 hours early. Must live near South Denver to come. </a>
+					</td>
+					<td>
+						12/2/16&nbsp&nbsp&nbsp&nbsp
+					</td>
+					<td>
+						<input type="submit" value = "See More" id = "btn_submit" name = "btn_submit">
+					</td>
+					
+				</tr>
+
+				<tr>
+					<td>
+						Clay Walkers at Denver, CO  
+					</td>
+					<td>
+						Limited seating. Requiring passengers to pay 2/3 of parking + gas. Flexible on time to leave after event (up to 90 mins after). 					
+					</td>
+					<td>
+						12/5/16
+					</td>
+					<td>
+						<input type="submit" value = "See More" id = "btn_submit" name = "btn_submit">
 					</td>
 				</tr>
 
 				<tr>
 					<td>
-						<label for="zip">Zip</label>
+						Led Zep Cover, Red Rocks, CO 
 					</td>
 					<td>
-						<input type="text" name="zip"  maxlength="5" size="20">
+						Planning on staying ~1 hour longer than we get out (6-7 pm).  
+					</td>
+					<td>
+						12/5/16
+					</td>
+					<td>
+						<input type="submit" value = "See More" id = "btn_submit" name = "btn_submit">
 					</td>
 				</tr>
-				
+				<tr>
+					<td>
+						Three Dog Night at Aspen, CO  
+					</td>
+					<td>
+						Not planning on staying the entire time. Can come if you pay for parking completely. 					
+					</td>
+					<td>
+						12/7/16
+					</td>
+					<td>
+						<input type="submit" value = "See More" id = "btn_submit" name = "btn_submit">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Snoop Dog in Loveland, CO   
+					</td>
+					<td>
+						As the title says, Snoop Dog in Loveland. ~ 25 Miles South from event. If your on the way, Ill pick you for no extra cost, otherwise Im pretty negotiable. 					
+					</td>
+					<td>
+						12/13/16
+					</td>
+					<td>
+						<input type="submit" value = "See More" id = "btn_submit" name = "btn_submit">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Broncos vs Patriots, Den, CO 
+					</td>
+					<td>
+						Parking near stadium, however limited seats. Please contact me asap.  					
+					</td>
+					<td>
+						12/14/16
+					</td>
+					<td>
+						<input type="submit" value = "See More" id = "btn_submit" name = "btn_submit">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Safe In Sound Fes Broomfield, CO 
+					</td>
+					<td>
+						Going with one other person. Only staying for half of the event. Will not drive farther than 5 miles to pickup.   			
+					</td>
+					<td>
+						1/27/16
+					</td>
+					<td>
+						<input type="submit" value = "See More" id = "btn_submit" name = "btn_submit">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Clay Walkers at Denver, CO  
+					</td>
+					<td>
+						Limited seating. Requiring passengers to pay 2/3 of parking + gas. Flexible on time to leave after event (up to 90 mins after). 					
+					</td>
+					<td>
+						12/2/16
+					</td>
+					<td>
+						<input type="submit" value = "See More" id = "btn_submit" name = "btn_submit">
+					</td>
+				</tr>
 			</table>	
-			
-			<p id="error_message"></p>
-			<input type="submit" value = "Create Account" id = "btn_submit" name = "btn_submit"> <!-- <a href="LoggedIn.html"></a> -->
-
-
 			<?php
 				if (isset($_POST['btn_submit'])){
 					include 'scripts/create_account_script.php';

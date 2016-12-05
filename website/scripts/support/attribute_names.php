@@ -15,4 +15,14 @@
 	const ATTRIBUTE_STATE = 'state';
 	const ATTRIBUTE_ZIP_CODE = 'zipCode';
 	const ATTRIBUTE_PHONE = 'phone';
+
+	const TABLE_USER_ENTRY = 'user_entry';
+	const ATTRIBUTE_POST_ID = 'postId';
+	const ATTRIBUTE_TITLE = 'title';
+	const ATTRIBUTE_DESCRIPTION = 'text';
+	const ATTRIBUTE_POST_DATE = 'postDate';
+	const ATTRIBUTE_EVENT_DATE = 'eventDate';
+	const ATTRIBUTE_TAGS= 'tags';
+	const ATTRIBUTE_PRICE= 'price';
+
 ?>

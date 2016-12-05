@@ -1,3 +1,7 @@
+<?php
+// Start the session - http://www.w3schools.com/php/php_sessions.asp
+session_start();
+?>
 <!-- 
 This script was created by Maxine Harnett, Kushal Joshi and Johnathan Kruse
 This script is simply to test the user ability to create a new account.
@@ -91,12 +95,15 @@ This script is simply to test the user ability to create a new account.
 
 				if ($My_SQL_create_new_user_contact_sent){
 					$error = "Account created. <br>";
-					
+					 $_SESSION["user_id"] = get_userId($username);
+                    $_SESSION["user_name"] = $username;
 					//Must give credit to Santak Kumar Mishra for showing how to redirect to another page using javascript
                     //http://stackoverflow.com/questions/15000591/redirect-to-another-page-after-button-submit-->
 					echo '<script type="text/javascript"> ';
 					echo '	window.location.assign("'.GET_STARTED_WORKED.'");';
                     echo '</script>';
+
+                   
 				}
 				else{
 					$error = "Error: Could not save user contact data to database. Contact support. <br>";
@@ -132,6 +139,27 @@ This script is simply to test the user ability to create a new account.
      	
      	return $is_validated;
 	}
+
+	//Returns userId
+	function get_userId($username){
+		$search_query_username="SELECT ". ATTRIBUTE_USER_ID ."
+							    FROM ". TABLE_USER_PROFILE . "
+							    WHERE " . ATTRIBUTE_USERNAME . " = '" . $username . "';";
+   		
+   		//This is to tell the user if the username exists
+		//If a result returns, then we know the username has already been taken.
+		$return_result = send_query_to_db($search_query_username);
+		$is_validated = True;
+		$return_user_id = 0;
+		if ($return_result!=False){
+			$return_user_id = $return_result[ATTRIBUTE_USER_ID];
+			$is_validated = False;
+			//$error = "Error: UserID<br>";
+     	}
+     	
+     	return $return_user_id;
+	}
+	
 
 	//Check to ensure password of proper conventions
 	function validate_password($password1, $password2){

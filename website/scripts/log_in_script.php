@@ -1,9 +1,12 @@
+<?php
+// Start the session - http://www.w3schools.com/php/php_sessions.asp
+session_start();
+?>
 <!-- 
 This script was created by Maxine Harnett, Kushal Joshi and Johnathan Kruse
 This script is simply to test the user ability to log in to an existing account and display the user's info.
 A separate script will be used for new users, which is create_account_form.php
 -->
-
 <!DOCTYPE html>
 <html>
 <?PHP
@@ -31,11 +34,15 @@ A separate script will be used for new users, which is create_account_form.php
 			$user_password_validated = validate_password($password,$user_password);
 
 			if ($user_password_validated){
+				$_SESSION["user_id"] = get_userId($username);
+                $_SESSION["user_name"] = $username;
 				//Must give credit to Santak Kumar Mishra for showing how to redirect to another page using javascript
                 //http://stackoverflow.com/questions/15000591/redirect-to-another-page-after-button-submit
 				echo '<script type="text/javascript"> ';
 				echo '	window.location.assign("'.LOG_IN_WORKED.'");';
                 echo '</script>';
+
+                
 			}
 			else{
 				$error = "Error: Username or Password do not match.";
@@ -73,6 +80,26 @@ A separate script will be used for new users, which is create_account_form.php
      	$error = "Username Validated: " . $is_validated . "<br>";
 
      	return $return_result;
+	}
+
+	//Returns userId
+	function get_userId($username){
+		$search_query_username="SELECT ". ATTRIBUTE_USER_ID ."
+							    FROM ". TABLE_USER_PROFILE . "
+							    WHERE " . ATTRIBUTE_USERNAME . " = '" . $username . "';";
+   		
+   		//This is to tell the user if the username exists
+		//If a result returns, then we know the username has already been taken.
+		$return_result = send_query_to_db($search_query_username);
+		$is_validated = True;
+		$return_user_id = 0;
+		if ($return_result!=False){
+			$return_user_id = $return_result[ATTRIBUTE_USER_ID];
+			$is_validated = False;
+			//$error = "Error: UserID<br>";
+     	}
+     	
+     	return $return_user_id;
 	}
 
 	//Check if the entered passwords match and if it is correct for the password
